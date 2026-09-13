@@ -23,7 +23,7 @@ pub struct DirtyRect {
     pub h: u32,
 }
 
-const MAX_PILHA: usize = 8 * 1024 * 1024; // 8 MiB de cabeçalho JSON
+const MAX_HEAD_JSON: usize = 1 << 23; // 8 MiB de cabeçalho JSON
 
 /// Codifica o payload de FRAME_DELTA. `rects` aponta para `nrects` valores
 /// u32 em sequência x,y,w,h. Copia os pixels do framebuffer BGRA na ordem dos
