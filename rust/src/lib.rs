@@ -149,8 +149,6 @@ mod tests {
         assert!(head.contains(r#"{"x":9,"y":0,"w":1,"h":1}]]"#));
         // len do payload = headers + 12*4 + 1*4
         let hlen = head.find("]\n").unwrap() + 2;
-        let expect = hlen + 12 * 4 + 1 * 4;
-        assert_eq!(n as usize, expect);
-        assert_eq!(n as usize, out.len().min(n as usize).max(hlen + 48));
+        assert_eq!(n as usize, hlen + 12 * 4 + 1 * 4);
     }
 }

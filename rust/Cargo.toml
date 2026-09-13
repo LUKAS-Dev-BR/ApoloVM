@@ -1,0 +1,16 @@
+[package]
+name = "libapolographics"
+version = "0.2.0"
+edition = "2021"
+description = "Biblioteca estática Rust da ApoloVM V2 (encoder AGP/FRAME_DELTA)"
+license = "GPL-2.0-or-later"
+
+[lib]
+name = "apolographics"
+crate-type = ["staticlib", "rlib"]
+
+[workspace]
+
+[profile.release]
+lto = true
+codegen-units = 1
