@@ -156,6 +156,12 @@ int apg_vnc_fd(apg_vnc *v) { return v ? v->sock : -1; }
 int apg_vnc_width(apg_vnc *v) { return v ? (int)v->width : 0; }
 int apg_vnc_height(apg_vnc *v) { return v ? (int)v->height : 0; }
 
+void apg_vnc_set_callback(apg_vnc *v, apg_vnc_cb cb, void *ud) {
+    if (!v) return;
+    v->cb = cb;
+    v->ud = ud;
+}
+
 /* ---- helpers RFB ---- */
 static int send_all(int fd, const uint8_t *data, size_t n) {
     size_t off = 0;

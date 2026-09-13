@@ -1,0 +1,2 @@
+option('with_rust', type: 'feature', value: 'enabled',
+       description: 'Compila a biblioteca Rust libapolographics (se o rustc existir)')

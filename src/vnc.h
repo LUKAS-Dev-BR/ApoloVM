@@ -48,6 +48,9 @@ typedef struct apg_vnc apg_vnc;
 /* Cria um cliente. host pode ser "127.0.0.1". */
 apg_vnc *apg_vnc_new(const char *host, uint16_t port, const char *password);
 
+/* Instala o callback de eventos e o ponteiro de contexto de usuário. */
+void apg_vnc_set_callback(apg_vnc *v, apg_vnc_cb cb, void *ud);
+
 /* Conecta e negocia o protocolo. timeout_ms (0 => sem timeout).
  * Retorna -1 em erro (strerror em errno / mensagem em *err se não for NULL). */
 int apg_vnc_connect(apg_vnc *v, int timeout_ms, char *err, size_t errsz);
