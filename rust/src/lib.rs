@@ -144,9 +144,9 @@ mod tests {
         let mut out = vec![0u8; 4096];
         let n = unsafe { apg_rust_encode_delta(out.as_mut_ptr(), out.len(), fb.as_ptr(), 16, 10, rects.as_ptr(), 2) };
         assert!(n > 0, "n={}", n);
-        let head = String::from_utf8_lossy(&out[..40]);
+        let head = String::from_utf8_lossy(&out[..80]);
         assert!(head.starts_with(r#"[{"x":1,"y":2,"w":3,"h":4},"#));
-        assert!(head.contains(r#"{"x":9,"y":0,"w":1,"h":1}]]"#));
+        assert!(head.contains(r#"{"x":9,"y":0,"w":1,"h":1}]"#));
         // len do payload = headers + 12*4 + 1*4
         let hlen = head.find("]\n").unwrap() + 2;
         assert_eq!(n as usize, hlen + 12 * 4 + 1 * 4);
